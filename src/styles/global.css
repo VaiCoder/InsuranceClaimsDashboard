@@ -1,0 +1,195 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  background: #f5f7fb;
+  color: #172033;
+}
+
+button {
+  font: inherit;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background: #17243a;
+  color: white;
+  padding: 26px 18px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 48px;
+}
+
+.navigation-label {
+  color: #91a0b7;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  margin: 0 12px 14px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 12px;
+  border-radius: 7px;
+  color: #c5cede;
+  cursor: pointer;
+}
+
+.nav-item.active {
+  background: #294b79;
+  color: white;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  color: #91a0b7;
+  font-size: 12px;
+}
+
+.main-container {
+  flex: 1;
+  min-width: 0;
+}
+
+.header {
+  height: 76px;
+  padding: 0 32px;
+  background: white;
+  border-bottom: 1px solid #e7eaf0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.breadcrumb {
+  color: #667085;
+  font-size: 14px;
+}
+
+.header-actions,
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.icon-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #475467;
+}
+
+.user-profile {
+  gap: 10px;
+}
+
+.user-profile div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.user-profile strong {
+  font-size: 13px;
+}
+
+.user-profile small {
+  color: #667085;
+  font-size: 11px;
+}
+
+.page-content {
+  padding: 32px;
+}
+
+.page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.page-heading h1 {
+  margin: 0 0 8px;
+  font-size: 25px;
+}
+
+.page-heading p,
+.welcome-panel p {
+  color: #667085;
+  font-size: 14px;
+}
+
+.environment-badge {
+  background: #e9f2ff;
+  color: #245b9c;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.welcome-panel {
+  background: white;
+  border: 1px solid #e7eaf0;
+  border-radius: 10px;
+  padding: 28px;
+  min-height: 190px;
+}
+
+.welcome-panel h2 {
+  font-size: 19px;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 75px;
+    padding: 20px 10px;
+  }
+
+  .brand span,
+  .navigation-label,
+  .nav-item span,
+  .sidebar-footer {
+    display: none;
+  }
+
+  .nav-item {
+    justify-content: center;
+  }
+
+  .page-content {
+    padding: 20px;
+  }
+
+  .header {
+    padding: 0 16px;
+  }
+}

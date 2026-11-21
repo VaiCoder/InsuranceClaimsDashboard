@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import {
   LayoutDashboard,
   FileText,
@@ -6,37 +7,35 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
-const navigationItems = [
-  { label: "Dashboard", icon: LayoutDashboard },
-  { label: "Claims", icon: FileText },
-  { label: "Users & Roles", icon: Users },
-  { label: "Settings", icon: Settings },
+const navigation = [
+  { label: "Dashboard", path: "/", icon: LayoutDashboard },
+  { label: "Claims", path: "/claims", icon: FileText },
+  { label: "Users & Roles", path: "/users", icon: Users },
+  { label: "Settings", path: "/settings", icon: Settings },
 ];
 
 export function Sidebar() {
   return (
     <aside className="sidebar">
       <div className="brand">
-        <ShieldCheck size={28} />
+        <ShieldCheck size={25} />
         <span>ClaimSphere</span>
       </div>
 
-      <div className="navigation-label">WORKSPACE</div>
+      <p className="navigation-label">WORKSPACE</p>
 
       <nav>
-        {navigationItems.map((item, index) => {
-          const Icon = item.icon;
-
-          return (
-            <div
-              key={item.label}
-              className={`nav-item ${index === 0 ? "active" : ""}`}
-            >
-              <Icon size={19} />
-              <span>{item.label}</span>
-            </div>
-          );
-        })}
+        {navigation.map(({ label, path, icon: Icon }) => (
+          <NavLink
+            key={path}
+            to={path}
+            end={path === "/"}
+            className={({ isActive }) => `nav-item ${isActive ? "active" : ""}`}
+          >
+            <Icon size={19} />
+            <span>{label}</span>
+          </NavLink>
+        ))}
       </nav>
 
       <div className="sidebar-footer">Enterprise Claims Platform</div>

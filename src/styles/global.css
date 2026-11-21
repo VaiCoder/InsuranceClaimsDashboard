@@ -14,7 +14,7 @@ button {
   font: inherit;
 }
 
-.app-container {
+.app-layout {
   display: flex;
   min-height: 100vh;
 }
@@ -73,7 +73,7 @@ button {
   font-size: 12px;
 }
 
-.main-container {
+.main-content {
   flex: 1;
   min-width: 0;
 }
@@ -168,6 +168,7 @@ button {
   font-size: 19px;
 }
 
+
 @media (max-width: 768px) {
   .sidebar {
     width: 75px;
@@ -193,3 +194,8 @@ button {
     padding: 0 16px;
   }
 }
+
+.main-content > *:last-child {
+  min-width: 0;
+}
+

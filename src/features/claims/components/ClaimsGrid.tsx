@@ -19,14 +19,58 @@ import { useNavigate } from "react-router-dom";
 
 const columns: GridColDef<Claim>[] = [
   {
-    field: "claimNumber",
-    headerName: "Claim Number",
+    field: "customerName",
+    headerName: "Customer Name",
     minWidth: 160,
     flex: 1,
   },
   {
     field: "customerName",
-    headerName: "Customer",
+    headerName: "Company",
+    minWidth: 160,
+    flex: 1,
+  },
+  {
+    field: "phoneNumber",
+    headerName: "Phone Number",
+    minWidth: 160,
+    flex: 1,
+  },
+  {
+    field: "email",
+    headerName: "Email",
+    minWidth: 260,
+    flex: 1,
+  },
+  {
+    field: "country",
+    headerName: "Country",
+    minWidth: 90,
+    flex: 1,
+  },
+  {
+    field: "status",
+    headerName: "Status",
+    minWidth: 140,
+    renderCell: (params) => (
+      <Chip
+        label={String(params.value).replace("_", " ")}
+        size="small"
+        color={
+          params.value === "APPROVED"
+            ? "success"
+            : params.value === "REJECTED"
+              ? "error"
+              : params.value === "IN_REVIEW"
+                ? "warning"
+                : "default"
+        }
+      />
+    ),
+  },
+  {
+    field: "claimNumber",
+    headerName: "Claim Number",
     minWidth: 160,
     flex: 1,
   },
@@ -52,26 +96,6 @@ const columns: GridColDef<Claim>[] = [
         style: "currency",
         currency: "USD",
       }).format(Number(value)),
-  },
-  {
-    field: "status",
-    headerName: "Status",
-    minWidth: 140,
-    renderCell: (params) => (
-      <Chip
-        label={String(params.value).replace("_", " ")}
-        size="small"
-        color={
-          params.value === "APPROVED"
-            ? "success"
-            : params.value === "REJECTED"
-              ? "error"
-              : params.value === "IN_REVIEW"
-                ? "warning"
-                : "default"
-        }
-      />
-    ),
   },
   {
     field: "assignedTo",
@@ -112,7 +136,7 @@ export default function ClaimsGrid() {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%", backgroundColor: "#ffffff", p: 3, borderRadius: "30px", fontFamily: "Poppins, sans-serif" }}>
       <Box
         sx={{
           display: "flex",
@@ -124,11 +148,11 @@ export default function ClaimsGrid() {
         }}
       >
         <Box>
-          <Typography variant="h5" sx={{ fontWeight: 600 }}>
-            Claims
+          <Typography variant="h5" sx={{ fontWeight: 600, fontFamily: "Poppins, sans-serif" }}>
+            All Customers
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Manage and review insurance claims
+          <Typography variant="body2" sx={{ fontFamily: "Poppins, sans-serif", color: "#16C098" }}>
+            Active Members
           </Typography>
         </Box>
 
@@ -192,6 +216,12 @@ export default function ClaimsGrid() {
             "& .MuiDataGrid-row": {
               cursor: "pointer",
             },
+            border: "none",
+            fontFamily: "Poppins, sans-serif",
+            "& .MuiDataGrid-columnHeaders": {
+              color: "#B5B7C0",
+              fontWeight: 600,
+            }
           }}
         />
       </Box>

@@ -1,28 +1,33 @@
 import { NavLink } from "react-router-dom";
 import {
-  LayoutDashboard,
-  FileText,
-  Users,
-  Settings,
-  ShieldCheck,
+  Bolt,
+  SquareUserRound,
+  Box,
+  Wallet,
+  BadgePercent,
+  MessageCircleQuestionMark,
+  KeyRound,
+  ChevronRight,
+  ChevronDown,
+  UserRound,
 } from "lucide-react";
 
 const navigation = [
-  { label: "Dashboard", path: "/", icon: LayoutDashboard },
-  { label: "Claims", path: "/claims", icon: FileText },
-  { label: "Users & Roles", path: "/users", icon: Users },
-  { label: "Settings", path: "/settings", icon: Settings },
+  { label: "Dashboard", path: "/claims", icon: KeyRound },
+  { label: "Product", path: "/products", icon: Box },
+  { label: "Customers", path: "/", icon: SquareUserRound },
+  { label: "Income", path: "/users", icon: Wallet },
+  { label: "Promote", path: "/settings", icon: BadgePercent },
+  { label: "Help", path: "/settings", icon: MessageCircleQuestionMark },
 ];
 
 export function Sidebar() {
   return (
     <aside className="sidebar">
       <div className="brand">
-        <ShieldCheck size={25} />
-        <span>ClaimSphere</span>
+        <Bolt size={25} />
+        <span>Dashboard</span>
       </div>
-
-      <p className="navigation-label">WORKSPACE</p>
 
       <nav>
         {navigation.map(({ label, path, icon: Icon }) => (
@@ -34,11 +39,22 @@ export function Sidebar() {
           >
             <Icon size={19} />
             <span>{label}</span>
+            <span className="nav-item-arrow"><ChevronRight size={16} /></span>
           </NavLink>
         ))}
       </nav>
 
-      <div className="sidebar-footer">Enterprise Claims Platform</div>
+      <div className="sidebar-footer">
+        <div className="user-profile">
+          <div className="user-profile-icon"><UserRound size={42} /></div>
+          <div>
+            <strong>Evano</strong>
+            <small>Project Manager</small>
+          </div>
+          <div className="nav-item-arrow"><ChevronDown size={16} /></div>
+        </div>
+
+      </div>
     </aside>
   );
 }

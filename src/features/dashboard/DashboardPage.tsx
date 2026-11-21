@@ -60,7 +60,13 @@ const metrics = [
 
 export default function DashboardPage() {
   return (
-    <Box sx={{ p: 3 }}>
+    <Box
+      sx={{
+        p: 3,
+        bgcolor: "#f4f6fb",
+        minHeight: "100%",
+      }}
+    >
       <Box sx={{ mb: 3 }}>
         <Typography variant="h5" sx={{ fontWeight: 700 }}>
           Dashboard
@@ -74,7 +80,11 @@ export default function DashboardPage() {
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
+          gridTemplateColumns: {
+            xs: "1fr",
+            sm: "repeat(2, minmax(0, 1fr))",
+            lg: "repeat(4, minmax(0, 1fr))",
+          },
           gap: 2,
           mb: 3,
         }}
@@ -82,19 +92,44 @@ export default function DashboardPage() {
         {metrics.map((metric) => (
           <Card
             key={metric.label}
-            sx={{ p: 2.5, borderRadius: 2 }}
+            sx={{
+              p: 2.5,
+              borderRadius: 1,
+              bgcolor: "#ffffff",
+              borderColor: "#e5e9f0",
+              minHeight: 145,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              boxShadow: "0 1px 3px rgba(16, 24, 40, 0.04)",
+            }}
             elevation={0}
             variant="outlined"
           >
-            <Typography color="text.secondary" variant="body2">
+            <Typography
+              variant="body2"
+              sx={{ color: "#172033", fontWeight: 400 }}
+            >
               {metric.label}
             </Typography>
 
-            <Typography variant="h4" sx={{ fontWeight: 700, mt: 1, mb: 1 }}>
+            <Typography
+              variant="h4"
+              sx={{
+                fontWeight: 700,
+                color: "#111827",
+                mt: 1,
+                mb: 1,
+                fontSize: "2.1rem",
+              }}
+            >
               {metric.value}
             </Typography>
 
-            <Typography variant="caption" color="text.secondary">
+            <Typography
+              variant="caption"
+              sx={{ color: "#172033", fontSize: "0.75rem" }}
+            >
               {metric.description}
             </Typography>
           </Card>
@@ -105,7 +140,7 @@ export default function DashboardPage() {
       <Card
         variant="outlined"
         elevation={0}
-        sx={{ p: 3, borderRadius: 2, mb: 3 }}
+        sx={{ p: 3, borderRadius: 1, mb: 3 }}
       >
         <Typography variant="h6" sx={{ fontWeight: 600, mb: 3 }}>
           Claims by Status
@@ -157,7 +192,7 @@ export default function DashboardPage() {
       </Card>
 
       {/* Recent Claims */}
-      <Card variant="outlined" elevation={0} sx={{ p: 3, borderRadius: 2 }}>
+      <Card variant="outlined" elevation={0} sx={{ p: 3, borderRadius: 1 }}>
         <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
           Recent Claims
         </Typography>

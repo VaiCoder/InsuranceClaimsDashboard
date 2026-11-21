@@ -38,6 +38,8 @@ const adjusters = [
   "Unassigned",
 ];
 
+const activeMembers = [customers[0], customers[2], customers[4]];
+
 export function generateClaims(count = 20000): Claim[] {
   return Array.from({ length: count }, (_, index) => {
     const id = index + 1;
@@ -57,6 +59,9 @@ export function generateClaims(count = 20000): Claim[] {
       createdAt: new Date(
         Date.UTC(2025, 0, 1) + index * 3600000
       ).toISOString(),
+      memberStatus: activeMembers.includes(customers[index % customers.length])
+        ? "ACTIVE"
+        : "INACTIVE",
     };
   });
 }

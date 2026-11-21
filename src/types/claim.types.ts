@@ -17,6 +17,7 @@ export interface Claim {
   status: ClaimStatus;
   assignedTo: string;
   createdAt: string;
+  memberStatus: "ACTIVE" | "INACTIVE";
 }
 
 export interface ClaimsQuery {

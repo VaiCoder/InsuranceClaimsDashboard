@@ -11,11 +11,11 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <DashboardPage />,
+        element: <ClaimsPage />
       },
       {
         path: "claims",
-        element: <ClaimsPage />,
+        element: <DashboardPage />,
       },
       {
         path: "claims/:claimId/documents",
